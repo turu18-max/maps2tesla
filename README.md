@@ -19,7 +19,7 @@ Google Maps で経由地つきルートを作り、共有から送るだけで�
 
 <img src="docs/images/usage-notification.jpg" width="280" alt="送信完了の通知">
 
-車のナビには、経由地と充電計画つきで設定されます。
+車のナビでは、車側のTrip Plannerが動作します。
 
 <img src="docs/images/car-nav.jpg" width="560" alt="車のナビに設定されたルート">
 
