@@ -1,0 +1,27 @@
+services:
+  maps-to-tesla:
+    build: .
+    image: ghcr.io/turu18-max/maps-to-tesla:latest
+    container_name: maps-to-tesla
+    restart: unless-stopped
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./data:/data
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+
+  # Watches ONLY the labeled maps-to-tesla container and updates it when a
+  # new image is pushed to GHCR (checked every 5 minutes). Registry login
+  # comes from GHCR_USER / GHCR_TOKEN in a local .env file (never committed):
+  # a GitHub classic PAT with the read:packages scope only.
+  watchtower:
+    image: containrrr/watchtower:latest
+    container_name: maps-to-tesla-watchtower
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - REPO_USER=${GHCR_USER}
+      - REPO_PASS=${GHCR_TOKEN}
+    command: --label-enable --interval 300 --cleanup

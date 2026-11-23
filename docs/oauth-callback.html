@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>maps-to-tesla 認可コード</title></head>
+<body style="font-family: sans-serif; max-width: 640px; margin: 2em auto; padding: 0 1em;">
+<h1>認可コード</h1>
+<p>下のボタンを押すと、コードがコンテナに送られて認可が完了します。</p>
+<p id="code" style="font-size: 1.1em; word-break: break-all; background: #f0f0f0; padding: 1em;"></p>
+<p><a id="go" href="#" style="font-size: 1.2em; padding: .6em 1.2em; background: #2f6fed; color: #fff; text-decoration: none; border-radius: 6px;">コンテナに送って認可を完了する</a></p>
+<script>
+// CONTAINER_URL is replaced per user during setup (the container's LAN address).
+const CONTAINER_URL = 'http://YOUR-NAS-LAN-IP:8765';
+const code = new URLSearchParams(location.search).get('code');
+document.getElementById('code').textContent = code || '（コードが見つかりませんでした）';
+if (code) {
+  document.getElementById('go').href = CONTAINER_URL + '/setup/callback?code=' + encodeURIComponent(code);
+}
+</script></body></html>

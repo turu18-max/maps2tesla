@@ -1,0 +1,11 @@
+# Secrets and per-user state live in the data dir only. Never commit them.
+data/
+.env
+*.pem
+config.json
+tokens.json
+__pycache__/
+# Local-only working files (research memo with personal test routes,
+# and the abandoned unsigned-shortcut builder with a personal address).
+docs/ROUTE-GEOMETRY-POC.md
+tools/
