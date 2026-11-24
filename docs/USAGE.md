@@ -1,4 +1,4 @@
-# maps-to-tesla 使い方
+# Maps2Tesla 使い方
 
 導入（[SETUP.md](SETUP.md)）が済んだあとの、日常の使い方です。
 

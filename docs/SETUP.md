@@ -1,4 +1,4 @@
-# maps-to-tesla 導入手順
+# Maps2Tesla 導入手順
 
 Google Maps で作った複数経由地ルートを Tesla のナビに送るための、
 初回セットアップ手順です。上から順に進めれば、初めてでも
@@ -70,8 +70,10 @@ Google Maps で作った複数経由地ルートを Tesla のナビに送るた�
 2. 新しい登録を作成します（ポータルのボタンでは「Create App」
    のように表示されます。何かを作るというより、利用の
    届け出だと思ってください）
-    - 名前: 短い名前を付けてください
-     （記号の多い名前はフォームに弾かれることがあります）
+    - 名前: 短い名前を付けてください。ただし、この道具の名前
+     「maps2tesla」は使えません（「tesla」を含む名前はフォームに
+     弾かれます）。「maps2car」のような、「tesla」を含まない
+     名前を付けてください
     - **Allowed Origin（許可するオリジン）**:
      `https://<自分のユーザー名>.github.io`
     - **Redirect URI（戻り先 URL）**:
@@ -122,8 +124,8 @@ offline\_access）をサインイン時に使います。
 Docker が動くマシン（NAS / Raspberry Pi / PC など）で作業します。
 
 ```sh
-git clone https://github.com/turu18-max/maps-to-tesla.git
-cd maps-to-tesla
+git clone https://github.com/turu18-max/maps2tesla.git
+cd maps2tesla
 mkdir -p data
 printf 'GHCR_USER=\nGHCR_TOKEN=\n' > .env
 docker compose up -d --build

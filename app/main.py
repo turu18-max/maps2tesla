@@ -1,4 +1,4 @@
-"""maps-to-tesla web app: paste a Google Maps link, send the route.
+"""Maps2Tesla web app: paste a Google Maps link, send the route.
 
 Pages: / (send page), /setup (setup wizard: config form, public
 key, domain registration, Tesla login, vehicle picker; also the
@@ -20,7 +20,7 @@ from .sender import (DATA_DIR, exchange_code, list_vehicles, login_url,
                      send_waypoints, send_waypoints_raw, set_vin,
                      setup_status, token_scopes)
 
-app = FastAPI(title="maps-to-tesla")
+app = FastAPI(title="Maps2Tesla")
 
 
 @app.exception_handler(Exception)
@@ -41,7 +41,7 @@ async def _unhandled_to_json(request: Request, exc: Exception):
 PAGE = """<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>maps-to-tesla</title>
+<title>Maps2Tesla</title>
 <style>
 body { font-family: sans-serif; max-width: 640px; margin: 1em auto; padding: 0 1em; }
 input { width: 100%; padding: .7em; font-size: 16px; box-sizing: border-box; }
@@ -281,7 +281,7 @@ class CodeIn(BaseModel):
 SETUP_PAGE = """<!DOCTYPE html>
 <html lang="ja"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>セットアップ — maps-to-tesla</title>
+<title>セットアップ — Maps2Tesla</title>
 <style>
 body { font-family: sans-serif; max-width: 680px; margin: 1em auto; padding: 0 1em; }
 button { padding: .7em 1em; font-size: 15px; margin: .3em 0; }
@@ -294,7 +294,7 @@ textarea { height: 9em; font-family: monospace; font-size: 12px; }
 pre { white-space: pre-wrap; word-break: break-all; font-size: 12px; }
 label { font-size: 14px; font-weight: bold; }
 </style></head><body>
-<h1 style="font-size: 22px;">maps-to-tesla セットアップ</h1>
+<h1 style="font-size: 22px;">Maps2Tesla セットアップ</h1>
 <p class="small">上から順に進めてください。各ステップの詳しい手順は
 リポジトリの docs/SETUP.md を見てください。<br>
 状態: <span id="sumState">読み込み中…</span></p>
@@ -793,7 +793,7 @@ def _s(x):
 def _log_timing(kind, **fields):
     """One greppable timing line per request, e.g.
     [timing] send total=7.31s parse=0.42s resolve=1.20s send=5.69s ...
-    Read with: docker logs maps-to-tesla 2>&1 | grep timing"""
+    Read with: docker logs maps2tesla 2>&1 | grep timing"""
     parts = " ".join(f"{k}={v}" for k, v in fields.items())
     print(f"[timing] {kind} {parts}", flush=True)
 

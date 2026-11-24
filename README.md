@@ -1,4 +1,4 @@
-# maps-to-tesla
+# Maps2Tesla
 
 Google Maps で作った複数経由地ルートを、そのまま Tesla のナビに送るツールです。
 
