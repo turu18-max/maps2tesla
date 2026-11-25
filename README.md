@@ -31,9 +31,9 @@ Gemini等AIが出力した旅行プランのルートリンクからも送れま
 
 - Docker が動く場所
 - Tesla アカウント（車のオーナーアカウント）
-- （任意）外出先からも使いたい場合は、Tailscale などの VPN
-- GitHub アカウント（公開鍵の置き場所として GitHub Pages を使います。無料）
 - Tesla 開発者登録（手順書に沿ってフォーム入力するだけです）
+- GitHub アカウント（公開鍵の置き場所として GitHub Pages を使います。無料）
+- Tailscale などの VPN (外出先からも使う場合)
 
 ## 導入
 
